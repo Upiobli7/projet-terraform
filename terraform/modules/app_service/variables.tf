@@ -2,14 +2,14 @@
 variable "name" {
   description = "Nom de l'App Service et du Plan App Service"
   type        = string
-  default = "MyWebApp"
+  default = "MyWebAppUrbain"
 }
 
 
 variable "location" {
   description = "La région dans laquelle l'App Service et le Plan App Service seront créés"
   type        = string
-  default = "East US"
+  default = "France Central"
 }
 
 
