@@ -1,41 +1,55 @@
-# Variables pour app_service
+# Nom de l'App Service
 variable "name" {
-  description = "Nom de l'App Service"
+  description = "Nom de l'App Service et du Plan App Service"
   type        = string
-  default = "mywebapp"
+  default = "MyWebApp"
 }
 
-variable "app_service_plan_id" {
-  description = "ID du Plan App Service auquel l'App Service est lié"
-  type        = string
-}
-
-variable "name" {
-  description = "Nom du plan App Service"
-  type        = string
-  default = "PlanApp"
-}
 
 variable "location" {
-  description = "Région Azure"
+  description = "La région dans laquelle l'App Service et le Plan App Service seront créés"
   type        = string
-  default = "eastus"
+  default = "East US"
 }
 
+
 variable "resource_group_name" {
-  description = "Nom du groupe de ressources Azure"
+  description = "Nom du groupe de ressources dans lequel l'App Service et le Plan App Service seront déployés"
   type        = string
-  default = "myRG"
+  default = "ressource_group_WebApp"
 }
 
 variable "tier" {
-  description = "Tier de l'App Service Plan (e.g., Free, Basic, Standard)"
+  description = "Niveau du plan App Service (par exemple : 'Basic', 'Standard', 'Premium')"
   type        = string
-  default = "Standard"
+  default     = "Basic" 
 }
 
+
 variable "size" {
-  description = "Taille de l'App Service Plan (e.g., F1, B1, S1)"
+  description = "Taille de l'instance du Plan App Service (par exemple : 'B1', 'S1', 'P1v2')"
   type        = string
-  default = "S1"
+  default     = "B1"    
+}
+
+
+# Paramètre permettant de désactiver ou activer le stockage spécifique à l'App Service
+variable "enable_app_service_storage" {
+  description = "Activer ou désactiver le stockage spécifique à l'App Service (true/false)"
+  type        = bool
+  default     = false  # Valeur par défaut
+}
+
+# Activer ou non l'option 'always_on' pour maintenir l'application en ligne en permanence
+variable "always_on" {
+  description = "Activer l'option 'always_on' pour l'App Service"
+  type        = bool
+  default     = true   # Valeur par défaut
+}
+
+# Nom du plan App
+variable "plan_app_name" {
+  description = "Nom de l'App Service"
+  type        = string
+  default = "MyPlanApp"
 }
