@@ -53,10 +53,7 @@ jobs:
     - name: Terraform Plan
       working-directory: ./terraform
       run: |
-          az login --service-principal \
-          -u ${{ secrets.CLIENT_ID }} \
-          -p ${{ secrets.CLIENT_SECRET }} \
-          --tenant ${{ secrets.TENANT_ID }}
+          az login 
           terraform plan
 
       # On push to "main", build or change infrastructure according to Terraform configuration files
