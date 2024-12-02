@@ -53,7 +53,7 @@ jobs:
     - name: Terraform Plan
       working-directory: ./terraform
       run: |
-          az login 
+          az login --tenant ${{ secrets.TENANT_ID }}
           terraform plan
 
       # On push to "main", build or change infrastructure according to Terraform configuration files
