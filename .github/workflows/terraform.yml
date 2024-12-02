@@ -51,7 +51,12 @@ jobs:
     # Generates an execution plan for Terraform
     - name: Terraform Plan
       working-directory: ./terraform
-      run: terraform plan
+      run: |
+        export CLIENT_ID=${{ secrets.CLIENT_ID }}
+        export CLIENT_SECRET=${{ secrets.CLIENT_SECRET }}
+        export ARM_SUBSCRIPTION_ID=${{ secrets.AZURE_SUBSCRIPTION_ID }}
+        export ARM_TENANT_ID=${{ secrets.AZURE_TENANT_ID }}
+        terraform plan
 
       # On push to "main", build or change infrastructure according to Terraform configuration files
     - name: Terraform Apply
