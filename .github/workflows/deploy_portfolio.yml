@@ -13,6 +13,12 @@ jobs:
     - name: Checkout code
       uses: actions/checkout@v2  # Récupère le code de ton dépôt
 
+    # connexion à azure
+    - name: Login to Azure
+      uses: azure/login@v1
+      with:
+          creds: ${{ secrets.AZURE_CREDENTIALS }}
+
     - name: Set up Azure Web App Deploy
       uses: azure/webapps-deploy@v2
       with:
