@@ -24,7 +24,7 @@ jobs:
       with:
         app-name: MyWebAppUrbain  # Nom de la Web App Azure
         slot-name: 'production'  # Utilise 'production' pour le déploiement standard
-        package: './'  # Le répertoire contenant ton application HTML/CSS
+        package: './portfolio'  # Le répertoire contenant ton application HTML/CSS
       env:
         AZURE_CLIENT_ID: ${{ secrets.CLIENT_ID }}
         AZURE_CLIENT_SECRET: ${{ secrets.CLIENT_SECRET }}
