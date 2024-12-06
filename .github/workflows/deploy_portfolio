@@ -1,0 +1,26 @@
+name: Deploy to Azure Web App
+
+on:
+  push:
+    branches:
+      - main  # Déployer lorsque du code est poussé sur la branche 'main'
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v2  # Récupère le code de ton dépôt
+
+    - name: Set up Azure Web App Deploy
+      uses: azure/webapps-deploy@v2
+      with:
+        app-name: MyWebAppUrbain  # Nom de la Web App Azure
+        slot-name: 'production'  # Utilise 'production' pour le déploiement standard
+        package: './portfolio'  # Le répertoire contenant ton application HTML/CSS
+      env:
+        AZURE_CLIENT_ID: ${{ secrets.AZURE_CLIENT_ID }}
+        AZURE_CLIENT_SECRET: ${{ secrets.AZURE_CLIENT_SECRET }}
+        AZURE_TENANT_ID: ${{ secrets.AZURE_TENANT_ID }}
+        AZURE_SUBSCRIPTION_ID: ${{ secrets.AZURE_SUBSCRIPTION_ID }}
