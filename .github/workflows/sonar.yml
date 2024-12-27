@@ -10,12 +10,6 @@ jobs:
     name: Build
     runs-on: ubuntu-latest
 
-    services:
-      sonar:
-        image: sonarqube:latest
-        options: --health-cmd="curl --silent --fail http://localhost:9000/api/system/health" --health-interval=30s --health-timeout=30s --health-retries=5
-        ports:
-          - 9000:9000
 
     steps:
       - uses: actions/checkout@v2
