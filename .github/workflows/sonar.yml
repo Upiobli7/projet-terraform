@@ -22,7 +22,7 @@ jobs:
         uses: actions/cache@v2
         with:
           path: ~/.sonar/cache
-          key: ${{ runner.os }}-sonar-cache
+          key: ${{ runner.os }}-sonar-scanner-cli-6.2.1.4610
       - name: SonarQube Scan
         uses: sonarsource/sonarqube-scan-action@v4.1.0
         with:
